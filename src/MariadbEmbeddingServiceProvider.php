@@ -4,6 +4,7 @@ namespace XLaravel\Embedding\Driver\Mariadb;
 
 use Illuminate\Support\ServiceProvider;
 use XLaravel\Embedding\Contracts\VectorStore;
+use XLaravel\Embedding\Contracts\VectorStoreMetrics;
 use XLaravel\Embedding\Models\Embedding;
 use XLaravel\Embedding\SimilarityManager;
 
@@ -38,5 +39,6 @@ class MariadbEmbeddingServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(VectorStore::class, MariadbVectorStore::class);
+        $this->app->bind(VectorStoreMetrics::class, MariadbVectorStoreMetrics::class);
     }
 }
